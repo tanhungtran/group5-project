@@ -1,22 +1,20 @@
 // server.js
-const express = require('express'); [cite: 40]
-const app = express(); [cite: 41]
-app.use(express.json()); [cite: 42]
 
-// Định nghĩa PORT
-const PORT = process.env.PORT || 3000; [cite: 43]
+// Khai báo module và app
+const express = require('express');
+const app = express();
 
-// Khởi động server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); [cite: 44]
+// Middleware (để đọc JSON từ request body)
+app.use(express.json());
 
-// server.js
-
-// ... (các dòng const express, app.use(express.json()))
-
-// 1. Import User Routes
+// 1. IMPORT ROUTES (Hoạt động 3)
 const userRoutes = require('./routes/user');
 
-// 2. Sử dụng User Routes
-app.use('/', userRoutes); // Tất cả route trong userRoutes sẽ được sử dụng
+// 2. USE ROUTES (Hoạt động 3)
+app.use('/', userRoutes);
 
-// ... (các dòng const PORT và app.listen)
+// Định nghĩa PORT
+const PORT = process.env.PORT || 3000;
+
+// Khởi động server
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
