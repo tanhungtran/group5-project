@@ -1,11 +1,15 @@
 const express = require('express');
-const router = express.Router();
-const userController = require('../controllers/userController');
+const router = express.Router(); [cite: 108]
+const userController = require('../controllers/userController'); [cite: 109]
 
-// Route GET /users
-router.get('/users', userController.getUsers); // [cite: 55]
+// GET và POST đã có
+router.get('/users', userController.getUsers); [cite: 110]
+router.post('/users', userController.createUser); [cite: 111]
 
-// Route POST /users
-router.post('/users', userController.createUser); // [cite: 56]
+// Thêm PUT (Cập nhật)
+router.put('/users/:id', userController.updateUser); [cite: 112, 113]
 
-module.exports = router;
+// Thêm DELETE (Xóa)
+router.delete('/users/:id', userController.deleteUser); [cite: 113]
+
+module.exports = router; [cite: 114]
